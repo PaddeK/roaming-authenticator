@@ -1,0 +1,15 @@
+{
+	"comment": "",
+	"ignore": "test",
+	"package": [
+		{
+			"path": "github.com/docopt/docopt-go",
+			"revision": "784ddc588536785e7299f7272f39101f7faccc3f",
+			"revisionTime": "2016-02-16T16:20:12-07:00"
+		},
+		{
+			"path": "golang.org/x/crypto/sha3",
+			"revision": ""
+		}
+	]
+}
