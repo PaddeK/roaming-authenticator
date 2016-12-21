@@ -1,7 +1,8 @@
 # roaming-authenticator
 
   An illustration of how one might write a roaming authenticator for Nymi Bands
-
+  
+  **Note: _This is only for the old Nymi SDK 3.x_**
 
 ## Installation
 
