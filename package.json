@@ -1,6 +1,6 @@
 {
   "name": "nymi-roaming-authenticator",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "An illustration of how one might write a roaming authenticator for Nymi Bands",
   "keywords": [
     "nymi",
