@@ -1,51 +1,142 @@
 {
-  "name": "nymi-roaming-authenticator",
-  "version": "1.0.3",
-  "description": "An illustration of how one might write a roaming authenticator for Nymi Bands",
-  "keywords": [
-    "nymi",
-    "roaming",
-    "authenticator",
-    "roaming authenticator"
-  ],
-  "author": {
-    "name": "Patrick Klös",
-    "email": "pkloes@web.de"
-  },
-  "license": "Apache-2.0",
-  "main": "./index.js",
-  "scripts": {},
-  "bin": {
-    "roaming-authenticator": "./index.js"
-  },
-  "engines": {
-    "node": ">=0.10.0"
-  },
-  "dependencies": {
-    "body-parser": "^1.15.0",
-    "camelize": "^1.0.0",
-    "commander": "^2.9.0",
-    "elliptic": "^6.2.3",
-    "express": "4.x.x",
-    "js-sha3": "^0.5.1",
-    "jsonfile2": "^2.1.0",
-    "log": "^1.4.0",
-    "mkdirp": "^0.5.1"
-  },
-  "devDependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:PaddeK/roaming-authenticator.git"
-  },
-  "bugs": {
-    "url": "https://github.com/PaddeK/roaming-authenticator/issues"
-  },
-  "homepage": "https://github.com/PaddeK/roaming-authenticator",
-  "directories": {},
-  "maintainers": [
-    {
-      "name": "Patrick Klös",
-      "email": "pkloes@web.de"
+    "name": "nymi-roaming-authenticator",
+    "version": "1.0.3",
+    "description": "An illustration of how one might write a roaming authenticator for Nymi Bands",
+    "keywords": [
+        "nymi",
+        "roaming",
+        "authenticator",
+        "roaming authenticator"
+    ],
+    "author": {
+        "name": "Patrick Klös",
+        "email": "pkloes@web.de"
+    },
+    "license": "Apache-2.0",
+    "main": "./index.js",
+    "scripts": {
+        "postinstall": "node ./database/initDatabase.js",
+        "fresh": "node ./database/initDatabase.js"
+    },
+    "bin": {
+        "roaming-authenticator": "./index.js"
+    },
+    "engines": {
+        "node": ">=0.10.0"
+    },
+    "dependencies": {
+        "body-parser": "^1.15.0",
+        "camelize": "^1.0.0",
+        "commander": "^2.9.0",
+        "elliptic": "^6.2.3",
+        "express": "4.x.x",
+        "js-sha3": "^0.5.1",
+        "jsonfile2": "^2.1.0",
+        "log": "^1.4.0",
+        "mkdirp": "^0.5.1"
+    },
+    "devDependencies": {},
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:PaddeK/roaming-authenticator.git"
+    },
+    "bugs": {
+        "url": "https://github.com/PaddeK/roaming-authenticator/issues"
+    },
+    "homepage": "https://github.com/PaddeK/roaming-authenticator",
+    "directories": {},
+    "maintainers": [
+        {
+            "name": "Patrick Klös",
+            "email": "pkloes@web.de"
+        }
+    ],
+    "eslintConfig": {
+        "env": {
+            "es6": true,
+            "node": true
+        },
+        "root": true,
+        "extends": "eslint:recommended",
+        "rules": {
+            "require-jsdoc": [
+                "error",
+                {
+                    "require": {
+                        "FunctionDeclaration": true,
+                        "MethodDefinition": true,
+                        "ClassDeclaration": false,
+                        "ArrowFunctionExpression": false
+                    }
+                }
+            ],
+            "max-len": [
+                "error",
+                {
+                    "code": 120,
+                    "tabWidth": 4,
+                    "ignoreComments": true
+                }
+            ],
+            "valid-jsdoc": [
+                "error",
+                {
+                    "requireReturn": true,
+                    "matchDescription": ".+",
+                    "requireParamDescription": false,
+                    "requireReturnDescription": false
+                }
+            ],
+            "no-trailing-spaces": [
+                "error",
+                {
+                    "skipBlankLines": false
+                }
+            ],
+            "no-bitwise": "off",
+            "camelcase": "error",
+            "curly": "error",
+            "eqeqeq": "error",
+            "guard-for-in": "error",
+            "wrap-iife": [
+                "error",
+                "any"
+            ],
+            "no-use-before-define": [
+                "error",
+                {
+                    "functions": false
+                }
+            ],
+            "new-cap": "error",
+            "no-caller": "error",
+            "no-empty": "error",
+            "no-new": "error",
+            "quotes": [
+                "error",
+                "single"
+            ],
+            "no-undef": "error",
+            "no-unused-vars": "error",
+            "strict": [
+                "error",
+                "global"
+            ],
+            "no-cond-assign": [
+                "error",
+                "except-parens"
+            ],
+            "comma-style": [
+                "error",
+                "last"
+            ],
+            "indent": [
+                "error",
+                4,
+                {
+                    "SwitchCase": 1
+                }
+            ]
+        }
     }
-  ]
 }

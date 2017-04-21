@@ -200,3 +200,4 @@ dist/
 nbdist/
 nbactions.xml
 .nb-gradle/
+/database/nymiroaming.db

@@ -1,0 +1,16 @@
+DROP TABLE IF EXISTS nonces;
+CREATE TABLE IF NOT EXISTS nonces
+(
+    exchange VARCHAR(128) NOT NULL,
+    nonce CHARACTER(64) NOT NULL,
+    createdAt DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    PRIMARY KEY (exchange)
+);
+DROP TABLE IF EXISTS users;
+CREATE TABLE IF NOT EXISTS users
+(
+    keyId CHARACTER(32) NOT NULL,
+    userId VARCHAR(128) NOT NULL,
+    bandPublicKey CHARACTER(128) NOT NULL,
+    PRIMARY KEY (keyId, userId, bandPublicKey)
+);

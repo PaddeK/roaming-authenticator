@@ -251,3 +251,4 @@ tmtags
 
 # sftp configuration file
 sftp-config.json
+/database/nymiroaming.db
