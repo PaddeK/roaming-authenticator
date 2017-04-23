@@ -3,8 +3,7 @@
 const
     NeaHelpers = require('nea-helpers'),
     RoamingAuth = NeaHelpers.RoamingAuth,
-    //Server = require('take-five'),
-    Server = require('./lib/server'),
+    Server = require('./../lib/server'),
     fs = require('fs'),
     PemFile = __dirname + '/roaming.pem',
     Database = require('better-sqlite3');
@@ -19,6 +18,5 @@ let db = new Database('./database/nymiroaming.db');
     router.get('provision/getpubkey', success({partnerPublicKey: RoamingAuth.getPublicKey(PemFile)}));
     router.put('provision/test', (req, res) => res.send(req.body));
 
-    server.listen(9090);
+    server.listen(9090, () => process.stdout.write('Listening on http://localhost:9090'));
 }).catch(err => process.stderr.write(err) && process.exit(1));
-

@@ -16,24 +16,21 @@
     "main": "./index.js",
     "scripts": {
         "postinstall": "node ./database/initDatabase.js",
-        "fresh": "node ./database/initDatabase.js"
+        "fresh": "node ./database/initDatabase.js",
+        "start": "concurrently -p \"[{name}]\" -n \"service,nea\" \"node ./service/roamingService.js\""
     },
     "bin": {
         "roaming-authenticator": "./index.js"
     },
     "engines": {
-        "node": ">=0.10.0"
+        "node": ">=6.0.0"
     },
     "dependencies": {
-        "body-parser": "^1.15.0",
-        "camelize": "^1.0.0",
-        "commander": "^2.9.0",
-        "elliptic": "^6.2.3",
-        "express": "4.x.x",
-        "js-sha3": "^0.5.1",
-        "jsonfile2": "^2.1.0",
-        "log": "^1.4.0",
-        "mkdirp": "^0.5.1"
+        "better-sqlite3": "~2.3.2",
+        "nea-helpers": "~0.1.0",
+        "fast-safe-stringify": "~1.1.13",
+        "wayfarer": "~6.5.1",
+        "concurrently": "~3.4.0"
     },
     "devDependencies": {},
     "repository": {
