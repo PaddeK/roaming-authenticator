@@ -84,7 +84,7 @@ class Setup
         //     clien
         // });
 
-        this._client.get('/provision/getpubkey').then(res => console.log(res), err => console.log(err));
+        this._client.get('provision/getpubkey').then(res => console.log('res', res), err => console.log('err', err));
     }
 }
 
