@@ -2,7 +2,6 @@
 ### Eclipse template
 
 .metadata
-bin/
 tmp/
 *.tmp
 *.bak
@@ -202,3 +201,6 @@ nbactions.xml
 .nb-gradle/
 /database/nymiroaming.db
 roaming.pem
+/nea/config.json
+/nea/napi.log
+/nea/ncl.log

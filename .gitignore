@@ -170,7 +170,6 @@ Temporary Items
 ### Eclipse template
 
 .metadata
-bin/
 tmp/
 *.tmp
 *.swp
@@ -253,3 +252,6 @@ tmtags
 sftp-config.json
 /database/nymiroaming.db
 roaming.pem
+/nea/config.json
+/nea/napi.log
+/nea/ncl.log
