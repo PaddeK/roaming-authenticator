@@ -24,6 +24,18 @@ class ServiceConnector
         });
     }
 
+    createUser (userID, nbPublicKey, nbPublicKeyID)
+    {
+        return new Promise((resolve, reject) => {
+            this._client.post('/provision/newuser', {userID, nbPublicKey, nbPublicKeyID}).then(response => {
+                if (response.successful) {
+                    return resolve();
+                }
+                return reject();
+            }).catch(reject);
+        });
+    }
+
 }
 
 module.exports = ServiceConnector;
