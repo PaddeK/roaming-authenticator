@@ -11,11 +11,11 @@ class Setup
     /**
      * Create Setup instance
      * @param {NeaHelpers.Nea|Nea|EventEmitter} nea
-     * @param {Client} client
+     * @param {ServiceConnector} client
      */
-    constructor (nea, client)
+    constructor (nea, connector)
     {
-        this._client = client;
+        this._connector = connector;
         this._nea = nea;
         this._nea.on('ProvisionRunStart', this._provisionHandler.bind(this));
         this._nea.on('ProvisionRunStop', this._provisionHandler.bind(this));
@@ -84,7 +84,7 @@ class Setup
         //     clien
         // });
 
-        this._client.get('provision/getpubkey').then(res => console.log('res', res), err => console.log('err', err));
+        console.log(this._connector.getPublicKey());
     }
 }
 

@@ -2,6 +2,7 @@
 
 const
     Client = require('./../lib/Client'),
+    ServiceConnector = require('./ServiceConnector'),
     Setup = require('./Setup'),
     ProvisionStorage = require('./ProvisionStorage'),
     NeaHelpers = require('nea-helpers'),
@@ -22,5 +23,5 @@ config.
 nea = new Nea(config, storage);
 
 module.exports = {
-    Setup: (url) => new Setup(nea, new Client(url))
+    Setup: (url) => new Setup(nea, new ServiceConnector(new Client(url)))
 };
