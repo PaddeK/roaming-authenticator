@@ -3,7 +3,7 @@
 const
     NeaHelpers = require('nea-helpers'),
     RoamingAuth = NeaHelpers.RoamingAuth,
-    Server = require('./../lib/Server2'),
+    Server = require('./../lib/Server'),
     fs = require('fs'),
     PemFile = __dirname + '/roaming.pem',
     Database = require('better-sqlite3');

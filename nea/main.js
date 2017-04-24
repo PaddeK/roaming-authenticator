@@ -1,7 +1,7 @@
 'use strict';
 
 const
-    Client = require('./../lib/Client2'),
+    Client = require('./../lib/Client'),
     Setup = require('./Setup'),
     ProvisionStorage = require('./ProvisionStorage'),
     NeaHelpers = require('nea-helpers'),
