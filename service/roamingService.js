@@ -54,7 +54,7 @@ const
         }
 
         return error(req, res, 'Request field missing');
-    }).catch(err => process.stdout.write(JSON.stringify(err) + '\n'));
+    });
 
     router.post('sign', (req, res) => {
         let request = req.body.request;
@@ -84,7 +84,7 @@ const
         }
 
         return error(req, res, 'Request field missing');
-    }).catch(err => process.stdout.write(JSON.stringify(err) + '\n'));
+    });
 
     router.post('auth', (req, res) => {
         let request = req.body.request;
@@ -145,7 +145,7 @@ const
         }
 
         return error(req, res, 'Request field missing');
-    }).catch(err => process.stdout.write(JSON.stringify(err) + '\n'));
+    });
 
     server.listen(9090, '127.0.0.1', () => process.stdout.write('Listening on http://localhost:9090'));
 }).catch(err => process.stderr.write(err) && process.exit(1));
