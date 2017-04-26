@@ -4,6 +4,7 @@ const
     path = require('path'),
     program = require('commander'),
     setup = require(path.resolve(__dirname, '../nea/main.js')).Setup,
+    authenticate = require(path.resolve(__dirname, '../nea/main.js')).Authenticate,
     defaultURL = 'http://127.0.0.1:9090/roamingauth/';
 
 class CommandLine
@@ -55,7 +56,7 @@ class CommandLine
         program
                 .command('auth')
                 .description('Starts authentication of a set-up band and returns the results')
-                .action(url => console.log(a));
+                .action((args, cmd) => authenticate((cmd ? args : null) || (cmd||args).parent._defaultUrl).run());
 
         program.outputHelp = process.stdout.write.bind(process.stdout, CommandLine._help(program.helpInformation()));
 

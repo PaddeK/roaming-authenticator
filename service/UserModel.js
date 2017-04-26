@@ -2,6 +2,10 @@
 
 const
     Utils = require('nea-helpers').Utils,
+    /**
+     * @property {function} prepare
+     * @property {function} close
+     */
     Database = require('better-sqlite3');
 
 class UserModel
@@ -12,8 +16,7 @@ class UserModel
      */
     constructor (db)
     {
-        /** @property {function} prepare */
-        this._db = new Database(db);
+        this._db = db;
     }
 
     /**
@@ -23,9 +26,12 @@ class UserModel
      */
     getUserKeyFromKeyID (keyId)
     {
-        let sql = 'SELECT bandPublicKey FROM users WHERE keyId = :keyId;',
+        let con = new Database(this._db),
+            sql = 'SELECT bandPublicKey FROM users WHERE keyId = :keyId;',
             /** @property {string} userRow.bandPublicKey */
-            userRow = Utils.tryCatch(() => this._db.prepare(sql).get({keyId}));
+            userRow = Utils.tryCatch(() => con.prepare(sql).get({keyId}));
+
+        con.close();
 
         return userRow !== undefined ? userRow.bandPublicKey : '';
     }
@@ -37,9 +43,12 @@ class UserModel
      */
     getUserIDFromKeyID (keyId)
     {
-        let sql = 'SELECT userId FROM users WHERE keyId = :keyId;',
+        let con = new Database(this._db),
+            sql = 'SELECT userId FROM users WHERE keyId = :keyId;',
             /** @property {string} userRow.userId */
-            userRow = Utils.tryCatch(() => this._db.prepare(sql).get({keyId}));
+            userRow = Utils.tryCatch(() => con.prepare(sql).get({keyId}));
+
+        con.close();
 
         return userRow !== undefined ? userRow.userId : '';
     }
@@ -53,9 +62,12 @@ class UserModel
      */
     createNewUser (userId, bandPublicKey, keyId)
     {
-        let sql = 'INSERT INTO users (keyId, userId, bandPublicKey) VALUES (:keyId, :userId, :bandPublicKey);',
+        let con = new Database(this._db),
+            sql = 'INSERT INTO users (keyId, userId, bandPublicKey) VALUES (:keyId, :userId, :bandPublicKey);',
             /** @property {number} info.changes */
-            info = Utils.tryCatch(() => this._db.prepare(sql).run({keyId, userId, bandPublicKey}));
+            info = Utils.tryCatch(() => con.prepare(sql).run({keyId, userId, bandPublicKey}));
+
+        con.close();
 
         return info !== undefined && info.changes === 1;
     }

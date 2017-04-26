@@ -255,3 +255,4 @@ roaming.pem
 /nea/config.json
 /nea/napi.log
 /nea/ncl.log
+/nea/provisions.json

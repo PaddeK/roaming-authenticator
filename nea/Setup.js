@@ -2,6 +2,7 @@
 
 const
     NeaHelpers = require('nea-helpers'),
+    os = require('os'),
     Events = NeaHelpers.Events,
     Responses = NeaHelpers.Responses,
     Factory = NeaHelpers.RequestFactory;
@@ -38,7 +39,7 @@ class Setup
         this._connector.createUser('testuser', res.getRoamingAuthKey(), res.getRoamingAuthKeyId()).then(() => {
             this._stdOut('Roaming authentication setup complete');
             this._nea.stop().then(() => process.exit(0)).catch(() => process.exit(0));
-        }).catch(() => this._exit('Failed to create user on roaming service'));
+        }).catch((err) => this._exit(err.response + '\nFailed to create user on roaming service'));
     }
 
     /**
@@ -61,7 +62,7 @@ class Setup
             let pid = res.getClosestBand(bands).getProvisionInfo().getPid();
 
             this._connector.getPublicKey().then(pubKey => {
-                this._nea.send(Factory.setupRoamingAuth(pid, pubKey, 'roaming' + Date.now() + pid));
+                this._nea.send(Factory.setupRoamingAuth(pid, pubKey));
             }).catch(() => this._exit('Failed to get public key from roaming service'));
         }
     }
@@ -101,7 +102,7 @@ class Setup
      */
     _stdOut (str)
     {
-        process.stdout.write((str instanceof Object ? JSON.stringify(str, null, 4) : str) + process.EOL);
+        process.stdout.write((str instanceof Object ? JSON.stringify(str, null, 4) : str) + os.EOL);
     }
 
     /**
@@ -123,7 +124,7 @@ class Setup
      */
     _exit (msg = 'Roaming authentication setup failed')
     {
-        process.stderr.write(msg + process.EOL);
+        process.stderr.write(msg + os.EOL);
         this._nea.stop().then(() => process.exit(1)).catch(() => process.exit(1));
     }
 

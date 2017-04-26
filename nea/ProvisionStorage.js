@@ -26,6 +26,7 @@ class ProvisionStorage
         this._file = file;
     }
 
+    //noinspection JSUnusedGlobalSymbols
     /**
      * Read provision data
      * @return {string}
@@ -35,6 +36,7 @@ class ProvisionStorage
         return Utils.tryCatch(() => fs.readFileSync(this._file, 'utf8'), '{}');
     }
 
+    //noinspection JSUnusedGlobalSymbols
     /**
      * Write provision data
      * @param {string} data
