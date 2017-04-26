@@ -16,6 +16,7 @@
     },
     "license": "Apache-2.0",
     "main": "./index.js",
+    "preferGlobal": true,
     "scripts": {
         "postinstall": "node ./database/initDatabase.js",
         "fresh": "node ./database/initDatabase.js",
