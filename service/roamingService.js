@@ -20,6 +20,7 @@ const
         router = server.router('roamingauth');
 
     router.get('shutdown', (req, res) => !res.send({successful: true}) && setTimeout(() => process.exit(), 1000));
+    router.get('ping', (req, res) => res.send({successful: true}));
 
     router.get('provision/getpubkey', (req, res) => {
         return respond(req, res, {partnerPublicKey: RoamingAuth.getPublicKey(PemFile)});

@@ -1,52 +1,3 @@
-# roaming-authenticator
-
-  An illustration of how one might write a roaming authenticator for Nymi Bands
-  
-  **Note: _This is only for the old Nymi SDK 3.x_**
-
-## Installation
-
-    $ npm install -g nymi-roaming-authenticator
-
-
-## Usage
-
-Show available commands and general help
-
-    $ roaming-authenticator -h
-
-        Usage: roaming-authenticator [options] [command]
-
-
-        Commands:
-
-        fresh [options] <root>            Initialise the application in <root> directory
-        server [options] <root>           Run as server and serve the application in <root> directory
-        stdio [options] <root> <command>  Issues <command> directly for the application in <root> directory
-
-        Simplistic demonstration of a roaming authentication server that works with the Nymi JSON api.
-
-        Options:
-
-        -h, --help     output usage information
-        -V, --version  output the version number
-
-Show help for a specific command for example: `fresh`
-
-    $ roaming-authenticator fresh -h
-
-        Usage: fresh [options] <root>
-
-        Initialise the application in <root> directory
-
-        Options:
-
-        -h, --help      output usage information
-        --addr  <addr>  Address on which to listen for websocket connections     default: 127.0.0.1:9999.
-        --log   <file>  The log file to append to                                default: <root>/roaming-authenticator.log.
-        --certs <dir>   The directory containing the service TLS certs           default: <root>/certs.
-
-
 # nymi-roaming-authenticator
 NodeJs port of [RoamingNEASample](https://github.com/Nymi/SampleApps/tree/master/Java/RoamingNEASample) and [RoamingService](https://github.com/Nymi/SampleApps/tree/master/Java/RoamingService).
 
@@ -67,15 +18,33 @@ Tested on Windows 7 64bit, macOS Sierra 10.12.2, macOS Sierra 10.12.3 and macOS 
  - 64bit only
   
 ## Install
-For global installation
+For global installation (prefered).
 ```
 npm i nymi-roaming-authenticator -g
 ```
+Just remove -g for normal local installation.
 
 ## Usage
-After installation simply start the app with
+On a global installation just type
 ```
-npm start
+$ roamingnea
+```
+or for local installation type
+```
+$ npm start
+```
+to print the commandline usage information.
+```
+  Usage:  roamingnea <command>
+
+  The command can be either:
+    setup   Sets up a band for roaming authentication
+    auth    Starts authentication of a set-up band and returns the results
+    start   Starts the Roaming Service
+    stop    Stops the Roaming Service
+    state   Returns running state of Roaming Service
+
+  Roaming Service is listening on http://localhost:9090/roamingauth/
 ```
 
 ### License

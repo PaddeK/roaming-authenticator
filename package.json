@@ -14,13 +14,12 @@
         "name": "Patrick Klös",
         "email": "pkloes@web.de"
     },
-    "license": "Apache-2.0",
+    "license": "MIT",
     "main": "./index.js",
     "preferGlobal": true,
     "scripts": {
         "postinstall": "node ./database/initDatabase.js",
         "fresh": "node ./database/initDatabase.js",
-        "service": "node ./service/roamingService.js",
         "start": "node ./index.js"
     },
     "bin": {
